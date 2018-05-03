@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[字符串转整形]]></title>
+    <url>%2FBKDRHash%2F</url>
+    <content type="text"><![CDATA[1234567891011function BKDRHash($str) &#123; $seed = 131; // 31 131 1313 13131 131313 etc.. $hash = 0; $cnt = strlen($str); for($i = 0; $i &lt; $cnt; $i++) &#123; $hash = ((floatval($hash * $seed) &amp; 0x7FFFFFFF) + ord($str[$i])) &amp; 0x7FFFFFFF; &#125; return ($hash &amp; 0x7FFFFFFF); &#125;]]></content>
+      <categories>
+        <category>Algorithm</category>
+        <category>Snippets</category>
+      </categories>
+      <tags>
+        <tag>BKDRHash</tag>
+        <tag>Algorithm</tag>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+</search>
