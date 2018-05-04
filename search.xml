@@ -14,4 +14,16 @@
         <tag>PHP</tag>
       </tags>
   </entry>
+  <entry>
+    <title><![CDATA[InnoDB与MyIsam]]></title>
+    <url>%2FInnoDB%E4%B8%8EMyIsam%2F</url>
+    <content type="text"><![CDATA[InnoDB与MyIsam区别InnoDB和MyISAM是使用MySQL时最常用的两个表类型，两个表类型各有优劣，根据业务场景选择不同的表类型(正常情况下，根据实践经验选择Innodb)。 差别如下 功能点 InnoDB Myisam 备注 FULLTEXT索引 不支持 支持 表行数 不保存 InnoDB要扫描一遍整个表来计算有 保存 当count(*)语句包含 where条件时，两种表的操作是一样的 锁级别 行锁 表锁 执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表 事务处理 InnoDB提供事务支持事务，外部键（foreign key）等高级数据库功能 MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快，但是不提供事务支持 外键 支持 不支持 B+Tree叶节点data域 1、 主键索引:完整的数据记录[聚集索引] 2、 辅助索引:引用主键作为data域 3、辅助索引会包含主键列，所以，如果主键定义的比较大，其他索引也将很大。InnoDB 不会压缩索引。 4、辅助索引搜索需要检索两遍索引：首先检索辅助索引获得主键，然后用主键到主索引中检索获得记录。 1、主键索引:数据记录的地址[非聚集索引] 2、 辅助索引:结构上没有区别 InnoDB要求表必须有主键（MyISAM可以没有），如果没有显式指定，则MySQL系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整形。 构成区别 基于磁盘的资源是InnoDB表空间数据文件和它的日志文件，InnoDB 表的大小只受限于操作系统文件的大小，一般为 2GB 每个MyISAM在磁盘上存储成三个文件。第一个文件的名字以表的名字开始，扩展名指出文件类型。.frm文件存储表定义。数据文件的扩展名为.MYD (MYData)。索引文件的扩展名是.MYI (MYIndex)。 默认情况下ibdata1为所有innodb表共享的表空间数据文件，innodb_file_per_tablek开启后，innodb每表将使用独立表空间，.frm文件存储表结构信息,.ibd存放表数据信息跟索引信息。 参数配置InnoDB1- innodb_buffer_pool_size: 缓存innodb表的索引，数据，插入数据时的缓冲 参考资料MySQL my.cnf参数配置优化详解]]></content>
+      <categories>
+        <category>MySql</category>
+      </categories>
+      <tags>
+        <tag>InnoDB</tag>
+        <tag>MyIsam</tag>
+      </tags>
+  </entry>
 </search>
